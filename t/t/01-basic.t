@@ -2,18 +2,8 @@
 use warnings;
 use strict;
 
-use Test::More;
-BEGIN {
-    if (eval { require Net::OAuth::Request; 1 } && eval { Net::OAuth::Request->VERSION('0.05') }) {
-        plan tests => 9;
-    }
-    else {
-        plan skip_all => "Net::OAuth 0.05 isn't installed";
-    }
-}
-
 use lib 't/lib';
-use Jifty::Test;
+use Jifty::Test tests => 9;
 
 use Jifty::Test::WWW::Mechanize;
 
