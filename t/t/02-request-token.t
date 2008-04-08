@@ -14,6 +14,7 @@ BEGIN {
 
 use lib 't/lib';
 use TestApp::Plugin::OAuth::Test;
+start_server();
 
 # create some consumers {{{
 my $consumer = Jifty::Plugin::OAuth::Model::Consumer->new(current_user => Jifty::CurrentUser->superuser);
