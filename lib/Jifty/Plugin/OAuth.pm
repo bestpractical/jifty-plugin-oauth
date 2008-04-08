@@ -4,7 +4,7 @@ use warnings;
 
 use base qw/Jifty::Plugin/;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub init {
     Jifty::CurrentUser->mk_accessors(qw(is_oauthed oauth_token));
@@ -249,6 +249,11 @@ L<Net::OAuth::Request>, L<http://oauth.net/>
 =head1 AUTHOR
 
 Shawn M Moore C<< <sartak@bestpractical.com> >>
+
+=head1 LICENSE
+
+Jifty::Plugin::OAuth is Copyright 2007-2008 Best Practical Solutions, LLC.
+Jifty::Plugin::OAuth is distributed under the same terms as Perl itself.
 
 =cut
 
