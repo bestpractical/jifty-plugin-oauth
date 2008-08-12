@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use base qw/Jifty::Plugin/;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub init {
     Jifty::CurrentUser->mk_accessors(qw(is_oauthed oauth_token));
@@ -61,6 +61,8 @@ sub init {
         );
     }
 }
+
+__END__
 
 =head1 NAME
 
@@ -268,6 +270,4 @@ Jifty::Plugin::OAuth is Copyright 2007-2008 Best Practical Solutions, LLC.
 Jifty::Plugin::OAuth is distributed under the same terms as Perl itself.
 
 =cut
-
-1;
 
