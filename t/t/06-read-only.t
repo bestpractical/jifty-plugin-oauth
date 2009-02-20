@@ -3,7 +3,7 @@ use warnings;
 use strict;
 
 use lib 't/lib';
-use Test::More tests => 28;
+use Test::More tests => 29;
 use TestApp::Plugin::OAuth::Test;
 
 use Jifty::Test::WWW::Mechanize;
@@ -84,7 +84,7 @@ response_is(
     oauth_token            => $token_obj->token,
     token_secret           => $token_obj->secret,
 );
-
+$cmech->warnings_like(qr/Create of TestApp::Plugin::OAuth::Model::Favorite failed/);
 $cmech->content_like(qr/failure: 1/, "failed to create");
 
 my $favorites = TestApp::Plugin::OAuth::Model::FavoriteCollection->new(
