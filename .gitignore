@@ -11,3 +11,5 @@ t/*/mason*/
 var/
 mason*/
 *.swp
+t/t/mailbox_*
+t/testapp_plugin_oauth*
