@@ -68,7 +68,7 @@ __END__
 
 =head1 NAME
 
-Jifty::Plugin::OAuth - secure API authentication
+Jifty::Plugin::OAuth - secure API authorization
 
 =head1 DESCRIPTION
 
