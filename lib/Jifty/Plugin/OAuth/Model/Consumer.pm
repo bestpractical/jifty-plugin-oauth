@@ -3,6 +3,12 @@ package Jifty::Plugin::OAuth::Model::Consumer;
 use strict;
 use warnings;
 
+=head1 NAME
+
+Jifty::Plugin::OAuth::Model::Consumer - Consumer model
+
+=cut
+
 use base qw( Jifty::Record );
 
 use constant is_private => 1;

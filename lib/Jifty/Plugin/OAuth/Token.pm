@@ -4,6 +4,10 @@ use strict;
 use warnings;
 use Scalar::Util 'blessed';
 
+=head1 NAME
+
+Jifty::Plugin::OAuth::Token - OAuth helper methods
+
 =head1 DESCRIPTION
 
 This just provides some helper methods for both token classes to use

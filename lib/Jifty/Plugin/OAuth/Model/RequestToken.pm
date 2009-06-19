@@ -3,6 +3,12 @@ package Jifty::Plugin::OAuth::Model::RequestToken;
 use strict;
 use warnings;
 
+=head1 NAME
+
+Jifty::Plugin::OAuth::Model::RequestToken - Request token model
+
+=cut
+
 use base qw( Jifty::Plugin::OAuth::Token Jifty::Record );
 
 use constant is_private => 1;

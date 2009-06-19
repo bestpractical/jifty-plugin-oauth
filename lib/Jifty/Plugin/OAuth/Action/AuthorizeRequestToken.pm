@@ -5,7 +5,7 @@ use base qw/Jifty::Action/;
 
 =head1 NAME
 
-Jifty::Plugin::OAuth::Action::AuthorizeRequestToken
+Jifty::Plugin::OAuth::Action::AuthorizeRequestToken - Autorize request token action
 
 =cut
 

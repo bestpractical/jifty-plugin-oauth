@@ -9,6 +9,12 @@ use Net::OAuth::AccessTokenRequest;
 use Net::OAuth::ProtectedResourceRequest;
 use URI::Escape 'uri_unescape';
 
+=head1 NAME
+
+Jifty::Plugin::OAuth::Dispatcher - Plugin dispatcher
+
+=cut
+
 # Let the app do auth, etc, before we let these rules run
 after app,
   before      '/oauth/authorized'  => redirect '/oauth/authorize';
