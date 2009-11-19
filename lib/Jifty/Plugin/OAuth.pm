@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use base qw/Jifty::Plugin/;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 sub init {
     Jifty::CurrentUser->mk_accessors(qw(is_oauthed oauth_token));
