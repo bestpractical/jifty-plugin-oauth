@@ -284,7 +284,7 @@ This aborts the request with an "invalid HTTP method" response code.
 =cut
 
 sub invalid_method {
-    Jifty->web->response->add_header(Allow => 'POST');
+    Jifty->web->response->header(Allow => 'POST');
     abort(405);
 }
 
@@ -387,7 +387,7 @@ The precedence of parameters, from highest priority to lowest priority, is:
 
 sub get_parameters {
     my %p;
-    my %params = %{ Jifty->web->request->params };
+    my %params = %{ Jifty->web->request->parameters };
 
     # Check Authorization header
     my $authz = Jifty->web->request->header("Authorization");
