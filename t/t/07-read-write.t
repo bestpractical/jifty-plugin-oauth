@@ -97,6 +97,7 @@ is($favorites->count, 1, "no favorites found");
 is($favorites->first->thing, 'tests', "correct argument");
 # }}}
 # user REST POST {{{
+$umech->requests_redirectable([]);
 $umech->post("$URL/=/model/Favorite.yml",
     { thing => 'more tests' },
 );
