@@ -3,8 +3,7 @@ use warnings;
 use strict;
 
 use lib 't/lib';
-use Test::More tests => 85;
-use TestApp::Plugin::OAuth::Test;
+use TestApp::Plugin::OAuth::Test tests => 85, actual_server => 1;
 
 use Jifty::Test::WWW::Mechanize;
 start_server();

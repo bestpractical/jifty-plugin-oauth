@@ -3,8 +3,7 @@ use warnings;
 use strict;
 
 use lib 't/lib';
-use Test::More tests => 28;
-use TestApp::Plugin::OAuth::Test;
+use TestApp::Plugin::OAuth::Test tests => 28, actual_server => 1;
 
 use Jifty::Test::WWW::Mechanize;
 

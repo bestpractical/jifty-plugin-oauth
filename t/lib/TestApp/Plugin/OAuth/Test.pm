@@ -26,7 +26,7 @@ our $can_write;
 
 sub setup {
     my $class = shift;
-    $class->SUPER::setup;
+    $class->SUPER::setup(@_);
     $class->export_to_level(1);
 }
 
@@ -199,7 +199,7 @@ sub has_rsa {
 
 sub rsa_skip {
     my $count = shift || Carp::carp "You must specify a number of tests to skip.";
-    ::skip 'Crypt::OpenSSL::RSA is required for these tests', $count unless has_rsa;
+    ::skip( 'Crypt::OpenSSL::RSA is required for these tests', $count ) unless has_rsa;
 }
 
 sub slurp {
