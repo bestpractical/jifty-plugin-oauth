@@ -67,7 +67,7 @@ sub request_token {
     # Net::OAuth::Request will die hard if it doesn't get everything it wants
     my $request = eval { Net::OAuth::RequestTokenRequest->new(
         request_url     => Jifty->web->url(path => '/oauth/request_token'),
-        request_method  => Jifty->handler->apache->method(),
+        request_method  => Jifty->web->request->method,
         consumer_secret => $consumer->secret,
         signature_key   => $signature_key,
 
@@ -178,7 +178,7 @@ sub access_token {
     # Net::OAuth::Request will die hard if it doesn't get everything it wants
     my $request = eval { Net::OAuth::AccessTokenRequest->new(
         request_url     => Jifty->web->url(path => '/oauth/access_token'),
-        request_method  => Jifty->handler->apache->method(),
+        request_method  => Jifty->web->request->method,
         consumer_secret => $consumer->secret,
         token_secret    => $request_token->secret,
         signature_key   => $signature_key,
@@ -252,7 +252,7 @@ sub try_oauth
     # Net::OAuth::Request will die hard if it doesn't get everything it wants
     my $request = eval { Net::OAuth::ProtectedResourceRequest->new(
         request_url     => Jifty->web->url(path => Jifty->web->request->path),
-        request_method  => Jifty->handler->apache->method(),
+        request_method  => Jifty->web->request->method,
         consumer_secret => $consumer->secret,
         token_secret    => $access_token->secret,
         signature_key   => $signature_key,
@@ -284,7 +284,7 @@ This aborts the request with an "invalid HTTP method" response code.
 =cut
 
 sub invalid_method {
-    Jifty->web->response->add_header(Allow => 'POST');
+    Jifty->web->response->header(Allow => 'POST');
     abort(405);
 }
 
@@ -387,10 +387,10 @@ The precedence of parameters, from highest priority to lowest priority, is:
 
 sub get_parameters {
     my %p;
-    my %params = Jifty->handler->apache->params();
+    my %params = %{ Jifty->web->request->parameters };
 
     # Check Authorization header
-    my $authz = Jifty->handler->apache->header_in("Authorization");
+    my $authz = Jifty->web->request->header("Authorization");
     if ($authz && $authz =~ s/^\s*OAuth\s*//i) {
         while ($authz =~ m{\s*([%a-zA-Z0-9._~-]+)="([%a-zA-Z0-9._~-]*)"\s*}g) {
             $params{uri_unescape($1)} = uri_unescape($2);

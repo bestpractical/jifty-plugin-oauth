@@ -3,8 +3,7 @@ use warnings;
 use strict;
 
 use lib 't/lib';
-use Test::More tests => 29;
-use TestApp::Plugin::OAuth::Test;
+use TestApp::Plugin::OAuth::Test tests => 29, actual_server => 1;
 
 use Jifty::Test::WWW::Mechanize;
 
@@ -94,9 +93,11 @@ $favorites->unlimit;
 is($favorites->count, 0, "no favorites found");
 # }}}
 # user REST POST {{{
+$umech->requests_redirectable([]);
 $umech->post("$URL/=/model/Favorite.yml",
     { thing => 'more tests' },
 );
+
 $umech->content_contains("success: 1", "created a favorite");
 
 $favorites = TestApp::Plugin::OAuth::Model::FavoriteCollection->new(

@@ -3,8 +3,7 @@ use warnings;
 use strict;
 
 use lib 't/lib';
-use Test::More tests => 61;
-use TestApp::Plugin::OAuth::Test;
+use TestApp::Plugin::OAuth::Test tests => 61, actual_server => 1;
 start_server();
 
 # create some consumers {{{
