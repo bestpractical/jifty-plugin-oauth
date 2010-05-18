@@ -13,13 +13,13 @@ Jifty::Script::AddConsumer - Add OAuth consumers to your database
 
 =head1 SYNOPSIS
 
-$ jifty addconsumer --name='Twitter' --url='http://twitter.com'
-Created consumer
-    id:            6
-    name:          Twitter
-    url:           http://twitter.com
-    consumer key:  642859228261845
-    shared secret: 779182665606157
+    $ jifty addconsumer --name='Twitter' --url='http://twitter.com'
+    Created consumer
+        id:            6
+        name:          Twitter
+        url:           http://twitter.com
+        consumer key:  642859228261845
+        shared secret: 779182665606157
 
 =head1 DESCRIPTION
 
